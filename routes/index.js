@@ -8,7 +8,7 @@ exports.index = function(req, res) {
 };
 
 exports.newloc = function(req, res) {
-	res.send()
+	//res.send()
 
 	res.send("OK");
 }
