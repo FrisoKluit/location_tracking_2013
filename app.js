@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , mobile = require('./routes/mobile')
   , http = require('http')
   , path = require('path')
   , gcm = require('node-gcm');
