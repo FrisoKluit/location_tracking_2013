@@ -45,7 +45,7 @@ io.sockets.on('connection', function(socket) {
 	console.log(websocketList.length + " connections");
 })
 
-socket.on('disconnect', function() {
+io.sockets.on('disconnect', function() {
 	websocketList.splice(websocketList.indexOf(socket), 1);
 	console.log(websocketList.length + " connections");
 });
