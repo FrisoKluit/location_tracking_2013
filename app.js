@@ -10,7 +10,10 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , gcm = require('node-gcm');
-var app = express();
+//var app = express();
+
+var app = module.exports = express.createServer(), io = require('socket.io').listen(app, { log: false });
+
 
 // all environments
 app.set('port', process.env.PORT || 3002);
@@ -32,7 +35,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/mobile', mobile.index);
-app.post('/newloc', mobile.newloc);
+app.post('/newloc', routes.newloc);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
