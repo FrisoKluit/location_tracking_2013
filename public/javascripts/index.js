@@ -5,6 +5,9 @@ socket.on('connect', function() {
 	alert("Connected");
 });
 
+socket.on('data', function(data) {
+	alert(data);
+});
 
 
 $(document).ready(function() {
