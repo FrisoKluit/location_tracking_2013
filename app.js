@@ -3,6 +3,9 @@
  * Module dependencies.
  */
 
+var websocketList = [];
+
+
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -43,3 +46,8 @@ app.post('/newloc', routes.newloc);
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+io.sockets.on('connection', function(socket) {
+	websocketList.push(socket);
+	console.log(socket);
+})
