@@ -12,9 +12,10 @@ var express = require('express')
   , gcm = require('node-gcm');
 
 var app = express();
-
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 //var app = module.exports = express.createServer(), 
-var io = require('socket.io').listen(app, { log: true });
+//var io = require('socket.io').listen(app, { log: true });
 
 
 // all environments
