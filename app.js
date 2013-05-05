@@ -33,7 +33,9 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/mobile', mobile.index);
 app.post('/newloc', function(req, res) {
-	websocketList[i].emit("data", "test");
+	for (var i = 0; i < websocketList.length; i++) {
+		websocketList[i].emit("data", "test");
+	}
 });
 
 server.listen(app.get('port'), function() {
