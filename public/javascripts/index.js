@@ -8,7 +8,7 @@ socket.on('connect', function() {
 socket.on('data', function(data) {
 	$("#lat").text(data);
 	
-	alert(data);
+	//alert(data);
 });
 
 
