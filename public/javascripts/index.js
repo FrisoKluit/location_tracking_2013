@@ -1,5 +1,5 @@
 var socket = io.connect(document.location.href);
-
+var map;
 
 socket.on('connect', function() {
 	//alert("Connected");
