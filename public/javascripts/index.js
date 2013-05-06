@@ -8,6 +8,7 @@ socket.on('connect', function() {
 });
 
 socket.on('data', function(data) {
+	console.log(data);
 	var dataObject = $.parseJSON(data)
 	$("#lat").text(dataObject.lat);
 	$("#lng").text(dataObject.lng);
