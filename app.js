@@ -33,8 +33,8 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/mobile', mobile.index);
 app.post('/newloc', function(req, res) {
-	var lat = request.body.lat;
-	var lng = request.body.lng;
+	var lat = req.body.lat;
+	var lng = req.body.lng;
 	
 	for (var i = 0; i < websocketList.length; i++) {
 		websocketList[i].emit("data", lat);
