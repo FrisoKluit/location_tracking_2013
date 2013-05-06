@@ -36,7 +36,7 @@ app.post('/newloc', function(req, res) {
 	var lat = req.body.lat;
 	var lng = req.body.lng;
 	
-	console.log(lat);
+	console.log(req);
 	
 	for (var i = 0; i < websocketList.length; i++) {
 		websocketList[i].emit("data", lat);
