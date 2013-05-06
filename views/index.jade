@@ -1,11 +1,16 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  #lat
-  #layoutLeft
-    p Test
-  #layoutRight
-    #main
-      p test2
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    each s in scripts
+      script(src=s)
+  body(onload="init()")!= body
+    h1= title
+    p Welcome to #{title}
+    #lat
+    #layoutLeft
+      p Test
+    #layoutRight
+      #main
+        p test2
