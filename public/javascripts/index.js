@@ -1,5 +1,6 @@
 var socket = io.connect(document.location.href);
 var map;
+var markerList = new Array();
 
 socket.on('connect', function() {
 	//alert("Connected");
@@ -7,7 +8,15 @@ socket.on('connect', function() {
 });
 
 socket.on('data', function(data) {
-	$("#lat").text(data);
+	var dataObject = $.parseJSON(data)
+	$("#lat").text(dataObject.lat);
+	$("#lng").text(dataObject.lng);
+	$("#acc").text(dataObject.acc);
+	$("#imei").text(dataObject.imei);
+	
+	
+	
+	
 	
 	//alert(data);
 });

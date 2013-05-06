@@ -10,6 +10,7 @@
     "jade": "*",
     "stylus": "*",
     "node-gcm": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "passport" : "*"
   }
 }
