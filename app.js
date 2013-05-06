@@ -39,7 +39,7 @@ app.post('/newloc', function(req, res) {
 	console.log(data);
 	
 	for (var i = 0; i < websocketList.length; i++) {
-		websocketList[i].emit("data", lat);
+		websocketList[i].emit("data", data);
 	}
 });
 
