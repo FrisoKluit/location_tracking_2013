@@ -32,8 +32,7 @@ function updateMarker(imei, lat, lng) {
 		var marker = new google.maps.Marker({
 			map : map,
 			title : imei,
-			position : myLatLng,
-			icon : image
+			position : myLatLng
 		});
 
 		markerList[imei] = marker;
