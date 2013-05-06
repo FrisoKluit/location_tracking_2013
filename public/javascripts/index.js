@@ -6,7 +6,8 @@ socket.on('connect', function() {
 });
 
 socket.on('data', function(data) {
-	alert(data);
+	$("#lat").settext(data);
+//	alert(data);
 });
 
 
