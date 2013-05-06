@@ -14,22 +14,39 @@ socket.on('data', function(data) {
 	$("#lng").text(dataObject.lng);
 	$("#acc").text(dataObject.acc);
 	$("#imei").text(dataObject.imei);
-	
-	
-	
-	
-	
+
+	updateMarker(dataObject.imei, dataObject.lat, dataObject.lng)
+
 	//alert(data);
 });
+
+function updateMarker(imei, lat, lng) {
+	var myLatLng = new google.maps.LatLng(lat, lng);
+
+	i = markerList.indexOf(imei);
+	if (i > -1) {
+		// update
+		markerList[i].setPosition(myLatLng);
+	} else {
+		// create
+		var marker = new google.maps.Marker({
+			map : map,
+			title : imei,
+			position : myLatLng,
+			icon : image
+		});
+
+		markerList[imei] = marker;
+	}
+
+}
 
 
 $(document).ready(function() {
 	//alert("test");
-}); 
-
+});
 
 function init() {
-	alert("loading map");
 	var myLatlng = new google.maps.LatLng(1.37179, 103.833333);
 	var myOptions = {
 		zoom : 11,
