@@ -3,6 +3,7 @@
  */
 
 var websocketList = [];
+var old_number_of_users = 0;
 
 var express = require('express'), routes = require('./routes'), user = require('./routes/user'), mobile = require('./routes/mobile'), http = require('http'), path = require('path'), gcm = require('node-gcm');
 
@@ -49,7 +50,15 @@ server.listen(app.get('port'), function() {
 
 io.sockets.on('connection', function(socket) {
 	websocketList.push(socket);
+	if (old_number_of_users == 0 && websocketList.length > 0) {
+		console.log("Send GCM start tracking");
+	} else if (old_number_of_users > 0 && websocketList.length > 0){
+		console.log("stop tracking");
+	}
+	
+	
 	console.log(websocketList.length + " connections");
+	old_number_of_users = websocketList.length;
 })
 
 io.sockets.on('disconnect', function() {
