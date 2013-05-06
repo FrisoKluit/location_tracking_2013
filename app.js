@@ -62,6 +62,12 @@ io.sockets.on('connection', function(socket) {
 })
 
 io.sockets.on('disconnect', function() {
+	if (old_number_of_users == 0 && websocketList.length > 0) {
+		console.log("Send GCM start tracking");
+	} else if (old_number_of_users > 0 && websocketList.length > 0){
+		console.log("stop tracking");
+	}
+	
 	websocketList.splice(websocketList.indexOf(socket), 1);
 	console.log(websocketList.length + " connections");
 });
